@@ -1,13 +1,45 @@
-h1 {color:navy}
+/*
+    Rompí TODO el stylesheet que me pidieron en Ejercicio I, pero al menos pude practicar con FlexBox :)
+*/
 
-img {width: 400px}
+body
+{
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FS2BSd9Ohldk%2Fmaxresdefault.jpg&f=1&nofb=1");
+    color: #f2f2f2;
+    text-align: center;
+
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divClass
+{
+    background-color: #121212;
+
+    border:#121212;
+    border-radius: 33px;
+
+    padding: 10px;
+}
+
+h1, h3, h4
+{
+    color:navajowhite;
+}
+
+img
+{
+    max-height: 400px;
+    width: auto;
+}
 
 thirdDiv
 {
     height: 600px;  /* G) */
-    width: 500px;
 
-    background-color: black; /* H) */
+    background-color: #121212; /* H) */
 
     padding: 50px; /* K) */
     
