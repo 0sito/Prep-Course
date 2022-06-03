@@ -1,0 +1,24 @@
+h1 {color:navy}
+
+img {width: 400px}
+
+thirdDiv
+{
+    height: 600px;  /* G) */
+    width: 500px;
+
+    background-color: black; /* H) */
+
+    padding: 50px; /* K) */
+    
+    border: solid;              /* L) */
+    border-color: whitesmoke;
+    border-width: 10px;
+}
+
+spanId
+{
+    font-size: 18px; /* I) */
+
+    margin: 50px;   /* J) */
+}
