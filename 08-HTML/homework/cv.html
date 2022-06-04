@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>0sito - Curriculum Vitae</title>
     <style>
-
-        /*  */
-
+        /*Habría que revisar el CSS...*/
+        
         body
         {
             background-color: #121212;
@@ -16,68 +15,118 @@
             font-family: helvetica;
             text-align: center;
 
-
             display: flex;
-            flex-flow: column wrap;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
         }
-        
-        li { text-align: left; }
 
-        #asideCard, #aboutme, #experience, #skills, #motivation, #education, #hobbies
+        #personalInfo
         {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        #aboutMe
+        {
+            max-width: 1000px;
+            margin: 10px;
+        }
+
+        #workInfo
+        {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: flex-start;
+
+            margin: 10px;
+        }
+        
+        #asideCard
+        {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+
+            margin: 10px;
+            padding: 10px;
+            padding-top: 0px;
+            
             border: solid;
             border-width: 1px;
             border-radius: 11px;
             border-color:#f2f2f2;
-            padding: 1px;
-
-            max-width: 600px;
         }
 
-        #skills { border-radius: 0px }
+        img
+        {
+            max-width: 300px;
+            height: auto;
+        }
+
+        #experience, #skills, #education { text-align: left; }
+
+        h2
+        {
+            border-bottom: solid;
+            border-width: 1px;
+            border-color:#f2f2f2;
+        }
     </style>
 </head>
 <body>
     <h1>CURRICULUM VITAE</h1>
-    <section id="aboutme">
-        <h2>Descripción personal</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quae beatae in ipsam consequuntur, modi perspiciatis nesciunt, obcaecati nihil ipsa fugit, excepturi sunt totam accusantium odit harum ex rem. Architecto.</p>
-    </section>
-    <aside id="asideCard">
-        <img src="https://avatars.githubusercontent.com/u/58917248?v=4">
-        <h2>0sito</h2>
-        <div id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Javascript</li>
-                <li>HTML5</li>
-                <li>CSS3</li>
-            </ul>
+    <section id="personalInfo">
+        <div id="workInfo">
+            <div id="skills">
+                <h2>Skills</h2>
+                <ul>
+                    <li>Javascript</li>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                </ul>
+            </div>
+            <div id="education">
+                <h2>Educación</h2>
+                <ul>
+                    <li>Estudio 1</li>
+                    <li>Estudio 2</li>
+                </ul>
+            </div>
+            <div id="experience">
+                <h2>Experiencia laboral</h2>
+                <ul>
+                    <li>Trabajo 1</li>
+                    <li>Trabajo 2</li>
+                </ul>
+            </div>
         </div>
-    </aside>
-    <div id="education">
-        <h2>Educación</h2>
-        <ul>
-            <li>Estudio 1</li>
-            <li>Estudio 2</li>
-        </ul>
-    </div>
-    <div id="experience">
-        <h2>Experiencias laborales</h2>
-        <ul>
-            <li>Trabajo 1</li>
-            <li>Trabajo 2</li>
-        </ul>
-    </div>
-    <div id="hobbies">
-        <h2>Hobbies</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quae beatae in ipsam consequuntur, modi perspiciatis nesciunt, obcaecati nihil ipsa fugit, excepturi sunt totam accusantium odit harum ex rem. Architecto.</p>
-    </div>
-    <div id="motivation">
-        <h2>¿Por qué programación?</h2>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis vel suscipit odit quaerat. Praesentium a corporis quasi impedit magnam excepturi dicta sed, recusandae est totam? Perspiciatis dicta repellendus nobis id.</p>
-    </div>
+        <aside id="asideCard">
+            <h2><i>0sito</i></h2>
+            <img src="https://avatars.githubusercontent.com/u/58917248?v=4">
+        </aside>
+    </section>
+    <section id="aboutMe">
+        <div id="description">
+            <h2>Descripción personal</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quae beatae in ipsam consequuntur, modi perspiciatis nesciunt, obcaecati nihil ipsa fugit, excepturi sunt totam accusantium odit harum ex rem. Architecto.</p>
+        </div>
+        <div id="hobbies">
+            <h2>Hobbies</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quae beatae in ipsam consequuntur, modi perspiciatis nesciunt, obcaecati nihil ipsa fugit, excepturi sunt totam accusantium odit harum ex rem. Architecto.</p>
+        </div>            
+        <div id="motivation">
+            <h2>¿Por qué programación?</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis vel suscipit odit quaerat. Praesentium a corporis quasi impedit magnam excepturi dicta sed, recusandae est totam? Perspiciatis dicta repellendus nobis id.</p>
+        </div>
+        <div id="expectations">
+            <h2>Objetivos</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis vel suscipit odit quaerat. Praesentium a corporis quasi impedit magnam excepturi dicta sed, recusandae est totam? Perspiciatis dicta repellendus nobis id.</p>
+        </div>
+    </section>
 </body>
 </html>
