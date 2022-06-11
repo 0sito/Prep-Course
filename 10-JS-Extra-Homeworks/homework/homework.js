@@ -147,30 +147,31 @@ function sortArray(arr) {
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
   
-  /*
   var ordenado = [];
-  
-  ordenado.push(arr[0]);  //Asumo que nunca estará vacío/undefined arr.
 
-  for(var i = 1; i < arr.length; i++)
+  for(var i = 0; i < arr.length; i++)
   {
-    var carga = false;
-                                                /////
-    for(var j = 0; j < ordenado.length; j++)    ///// ARREGLAR CODIGO
-    {                                           ///// NO FUNCA!!!!!!!
-      if(arr[i].length < ordenado[j].length)    /////
+    if(i === 0)
+      ordenado.push(arr[i]);
+    else 
+    {
+      for(var j = 0; j < ordenado.length; j++)
       {
-        ordenado.unshift(arr[i]);
-        carga = true;
+        if(arr[i].length < ordenado[j].length)
+        {
+          ordenado.splice(j, 0, arr[i]);  //Splice se para en el índice "j", elimina "0" elementos
+          break;                          //y luego inserta "arr[i]"
+        }
+        else if(j === ordenado.length - 1)
+        {
+          ordenado.push(arr[i]);
+          break;                          //Con esos "break" directamente salgo del ciclo for. 
+        }
       }
     }
-
-    if(!carga)
-      ordenado.push(arr[i]);
   }
 
   return(ordenado);
-  */
 }
 
 
