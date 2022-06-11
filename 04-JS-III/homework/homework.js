@@ -4,7 +4,7 @@ function devolverPrimerElemento(array) {
   // Devuelve el primer elemento de un  array (pasado por parametro)
   // Tu código:
 
-  return(array[1]);
+  return(array[0]);
 }
 
 
@@ -69,14 +69,18 @@ function dePalabrasAFrase(palabras) {
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
 
-  var rta = "";
-
-  for(var i=0; i < palabras.length; i++)
+  if(palabras.length > 0)
   {
-    rta = rta + ' ' + palabras[i]; 
-  }
+    var rta = palabras[0];
+    
+    for(var i=1; i < palabras.length; i++)
+    {
+      rta = rta + " " + palabras[i]; 
+    }
 
-  return(rta);
+    return(rta);
+  }
+  //else -> escribiría alguna respuesta a argumento inválido.
 }
 
 
@@ -102,9 +106,9 @@ function agregarNumeros(numeros) {
 
   var total = 0;
 
-  for(var i=0; i < array.length; i++)
+  for(var i=0; i < numeros.length; i++)
   {
-    total += array[i];
+    total += numeros[i];
   }
 
   return(total);
@@ -118,9 +122,9 @@ function promedioResultadosTest(resultadosTest) {
 
   var total = 0
 
-  for(var i=0; i < array.length; i++)
+  for(var i=0; i < resultadosTest.length; i++)
   {
-    total += array[i];
+    total += resultadosTest[i];
   }
 
   return(total / resultadosTest.length);
@@ -134,10 +138,10 @@ function numeroMasGrande(numeros) {
 
   var max = numeros[0]; //Asumo que el argumento siempre al menos tiene un valor.
 
-  for(var i=1; i < array.length; i++)
+  for(var i=1; i < numeros.length; i++)
   {
-    if(max < array[i])
-      max = array[i];
+    if(max < numeros[i])
+      max = numeros[i];
   }
 
   return(max);
@@ -148,6 +152,22 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
+
+  if(arguments.length > 1)
+  {
+    var producto = 1;
+    
+    for(var i=0; i < arguments.length; i++)
+    {
+      producto *= arguments[i];
+    }
+
+    return(producto);
+  }
+  else if (arguments.length === 1)
+    return(arguments[0]);
+  else
+    return(0);
 }
 
 
@@ -157,9 +177,9 @@ function cuentoElementos(arreglo){
 
   var cantidad = 0;
 
-  for(var i=1; i < arreglo.length; i++)
+  for(var i=0; i < arreglo.length; i++)
   {
-    if(array[i] > 18)
+    if(arreglo[i] > 18)
       cantidad++;
   }
 
@@ -187,6 +207,11 @@ function empiezaConNueve(n) {
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
 
+  var string = "" + n; //Convierto el número a string.
+  
+  return(string.charAt(0) === "9");
+
+  //Potencial desafío -> cómo lo haría sin esta conversión a string?
 }
 
 
@@ -213,51 +238,18 @@ function mesesDelAño(array) {
   
   const pedido = [];
   
-  var enero, marzo, noviembre;
+  
+  var enero = false;
+  var marzo = false;
+  var noviembre = false;
 
-  for(var i=1; i < arreglo.length; i++)
-  {
-    /*
-    if(!enero)
-    {
-      if(array[i] === "Enero")
-      {
-        enero = true;
+  /*
+  // El test no aprobaba esto pq asumía casos muy triviales.
 
-        pedido.push("Enero");
+  // Éste método contempla potenciales repeticiones, y devolver los meses encontrados en orden.
 
-        if(marzo)
-        {
-          pedido.push("Marzo");
-
-          if(noviembre)
-          {
-            pedido.push("Noviembre");
-            i = arreglo.length;
-          }
-        }
-      }
-    }
-    else if(!marzo)
-    {
-      if(enero)
-      {
-        marzo = true;
-        pedido.push(array[i]);
-      }
-      else
-      {
-
-      }
-    }
-    else  //!noviembre
-    {
-
-    }
-    */
-
-    /////////////////////
-    
+  for(var i=0; i < array.length; i++)
+  {    
     if(array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre")
     {
       switch (array[i]) //Hago switch pq ya se que encontré alguno de los 3 meses.
@@ -276,7 +268,7 @@ function mesesDelAño(array) {
               if(noviembre) //Si ya había encontrado Noviembre.
               {
                 pedido.push("Noviembre");
-                i = arreglo.length; //Fin de la búsqueda.
+                i = array.length; //Fin de la búsqueda.
               }
             }
           }
@@ -292,7 +284,7 @@ function mesesDelAño(array) {
             if(noviembre) //Si ya había encontrado Noviembre.
             {
               pedido.push("Noviembre");
-              i = arreglo.length; //Fin de la búsqueda.
+              i = array.length; //Fin de la búsqueda.
             }
           }
           break;
@@ -302,16 +294,47 @@ function mesesDelAño(array) {
 
           pedido.push(array[i]);
 
-          i = arreglo.length; //Fin de la búsqueda.
+          i = array.length; //Fin de la búsqueda.
           break;
       }
     }
   }
+  */
 
-  if(pedido.length !== 2) //Solo haría push cuando está el mes correcto; ergo puedo validar con esto.
-    return("No se encontraron los meses pedidos");
+  for(var i=0; i < array.length; i++)
+  {    
+    switch (array[i]) //Hago switch pq ya se que encontré alguno de los 3 meses.
+    {
+      case "Enero":
+        {
+          pedido.push(array[i]);
+        enero = true;
+        break;
+        }
+        
+      case "Marzo":
+        {
+          pedido.push(array[i]);
+        marzo = true;
+        break;
+        }
+      
+      case "Noviembre":
+        {
+          pedido.push(array[i]);
+          noviembre = true;
+          break;
+        }
+
+      default:
+        break;  //Creo que este default no es correcto hacerlo así...
+    }
+  }
+
+  if(enero && marzo && noviembre)
+    return(pedido);  
   else
-    return(pedido);
+    return("No se encontraron los meses pedidos");
 }
 
 function mayorACien(array) {
@@ -344,7 +367,7 @@ function breakStatement(numero) {
 
   var suma = numero;
 
-  for(var i = 0; i < 10;)
+  for(var i = 0; i < 10; i++)
   {
     if(suma === (i + 1))
       break;
@@ -356,7 +379,7 @@ function breakStatement(numero) {
   }
 
   if(suma !== (numero + 20))
-    return("Se interrumpió la ejecucion");
+    return("Se interrumpió la ejecución");
   else
     return(pedido);
 }
